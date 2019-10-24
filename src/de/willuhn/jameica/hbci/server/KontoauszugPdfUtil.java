@@ -538,7 +538,7 @@ public class KontoauszugPdfUtil
         java.sql.Date f = new java.sql.Date(DateUtil.startOfDay(from).getTime());
         it.addFilter("((bis >= ? OR erstellungsdatum >= ?) OR (bis IS NULL AND erstellungsdatum IS NULL AND ausgefuehrt_am >= ?))", f, f, f);
       }
-      else
+      else if(to != null)
       {
         java.sql.Date t = new java.sql.Date(DateUtil.startOfDay(to).getTime());
         it.addFilter("((von <= ? OR erstellungsdatum <= ?) OR (bis IS NULL AND erstellungsdatum IS NULL AND ausgefuehrt_am <= ?))", t, t, t);        
